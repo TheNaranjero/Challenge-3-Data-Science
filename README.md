@@ -60,6 +60,8 @@ Se importan las librerías a utilizar, las bases de datos,crean algunas funcione
 
   
 ###  Análisis Exploratorio
+<img width="1421" height="644" alt="mapa de calor e importancia" src="https://github.com/user-attachments/assets/bc11307c-6a32-42f3-a336-f31fbbe55c36" />
+
 - Se realiza un análisis de correlación para todas la variables.
 - Se aplica un bosque aleatorio para obtener una primera estimación de la importancia de las variables.
 - Para las variables numéricas se estima la media, desvío estandar y el estadístico d de cohen (que mide la diferencia entre las medias). Se añaden boxplots y un suavizado loess estimando el riesgo de cancelación.
@@ -87,6 +89,8 @@ Se estiman 8 modelos diferentes, todos utilizan la corrección de pesos para bal
 - Bayes Ingenuo (gaussiano)
 
 ### Comparación de modelos
+<img width="1417" height="698" alt="matrices de confusion" src="https://github.com/user-attachments/assets/bd3064aa-2932-486e-a9c6-3cd33d4d9dc0" />
+
 Se utiliza la base de prueba, la cual nunca fue vista por los modelos. Se fija un punto de corte tal que la sensibilidad de todos los modelos al 80% (capturan correctamente al 80% de los clientes que cancelan). Lo cual permite comparar el resto de las medidas:
 - Precisión: la probabilidad de que un cliente catalogado de alto riesgo  cancele.
 - F1: Un promedio entre Sensibilidad y Precisión. Si este número es alto entonces el modelo puede capturar a un gran porcentaje de clientes que cancelarán y además cuando un cliente es clasificado como "alto riesgo" tiene una chance elevada de cancelar.
@@ -96,6 +100,7 @@ Se utiliza la base de prueba, la cual nunca fue vista por los modelos. Se fija u
 - Decisión final: tras comparar todos los estadísticos se selecciona el mejor modelo.
 
 ### Interpretación del modelo
+<img width="1062" height="524" alt="Importancia de las variables" src="https://github.com/user-attachments/assets/f5b62286-6b76-4f48-adb8-5578c6d5aace" />
 
 - Se interpretan las variables más importantes. Incluyendo el alcance de sus efectos (ej: los clientes que contratan fibra óptica tienen un 26% más chance de rechazo que los clientes sin internet).
 - Tabla Lift: la misma tabla presentada en este readme.
