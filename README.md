@@ -3,6 +3,14 @@
 Proyecto de Machine Learning para predicción de cancelación de clientes (churn).
 <img width="865" height="396" alt="imagen decorativa con porcentajes de la tabla lift" src="https://github.com/user-attachments/assets/eada8a74-3690-4af4-ae10-62d43868aa73" />
 
+---
+<p align="left">
+<img src="https://img.shields.io/badge/ESTADO-COMPLETO-green" alt="Badge Estado Completo">
+<img src="https://img.shields.io/badge/LENGUAJE-PYTHON-magenta" alt="Badge Lenguaje Python">
+<img src="https://img.shields.io/badge/ORGANIZACIÓN-ALURA-blue" alt="Badge Organización Alura">
+<img src="https://img.shields.io/badge/PROYECTO-3-orange" alt="Badge Proyecto 4">
+</p>
+
 ## Introducción
 Este proyecto desarrolla modelos predictivos para estimar el riesgo de cancelación de clientes (churn) en Telecom X. El objetivo es construir herramientas que permitan identificar clientes de alto riesgo y facilitar estrategias de retención.
 
@@ -112,46 +120,47 @@ En particular se advierte sobre el riesgo de que los datos estén mal interpreta
 
 
 ## **DICCIONARIO**
-
-- customer_id: número de identificación único de cada cliente
-- churn: cliente dejó la empresa (1:Sí, 0:No)
-- gender_male: género (1:masculino, 0:femenino)
-- senior_citizen_65: cliente mayor a 64 años (1:Sí, 0:No)
-- partner: cliente tiene una pareja (1:Sí, 0:No)
-- dependents: cliente tiene dependientes (1:Sí, 0:No)
-- tenure: meses de contrato del cliente
-- phone_service: cliente suscrito al servicio telefónico (1:Sí, 0:No)
-- multiple_lines: cliente suscrito a más de una línea telefónica (1:Sí, 0:No)
-- internet_service: cliente suscrito a un proveedor de internet (1:Sí, 0:No)
-- online_security: cliente suscrito al seguridad en línea (1:Sí, 0:No)
-- online_backup: cliente suscrito a respaldo en línea (1:Sí, 0:No)
-- device_protection: cliente suscrito a protección del dispositivo (1:Sí, 0:No)
-- tech_support: cliente suscrito a soporte técnico (1:Sí, 0:No)
-- streaming_tv: cliente suscrito a televisión por cable (1:Sí, 0:No)
-- streaming_movies: cliente suscrito a streaming de películas (1:Sí, 0:No)
-- contract: tipo de contrato (month_to_month, one_year, two_year)
-- paperless_billing: cliente prefiere recibir la factura en línea (1:Sí, 0:No)
-- payment_method: forma de pago
-- charges_monthly: total de todos los servicios del cliente por mes
-- charges_total: total gastado por el cliente
-- family: El cliente tiene pareja o dependientes. (1:sí, 0:no)
-- tenure_log: logaritmo de la antigüedad del cliente.
-- dsl: toma el valor 1 si el servicio de internet es por DSL, 0 en otro caso.
-- fiber_optic: toma el valor 1 si el servicio de internet es por fibra optica, 0 en otro caso.
-- no_internet: toma el valor 1 si no hay servicio de internet.
-- subcription_total: Cuenta la cantidad de servicios a lo que el usuario esta subscrito.
-- subcription_no_streaming: Cuenta la cantidad de servicios a lo que el usuario esta subscrito, ignorando los de streaming
-- streaming: cliente suscrito a streaming_tv o streaming_movies (1:sí, 0:no)
-- month_to_month: toma el valor 1 si el contrato es de ese tipo, 0 en otro caso.
-- one_year: toma el valor 1 si el contrato es de ese tipo, 0 en otro caso.
-- two_year: toma el valor 1 si el contrato es de ese tipo, 0 en otro caso.
-- charges_average : Se suman los gaston mensuales y totales (los gastos acumulados más los gastos de este mes) y se dividen por tenure + 1 (contando el mes).
-- charges_average_log : logaritmo de los gastos promedios.
-- charges_total_log : logaritmo de los gastos totales.
-- electronic_check: toma el valor 1 si el método de pago es de ese tipo, 0 en otro caso.
-- mailed_check: toma el valor 1 si el método de pago es de ese tipo, 0 en otro caso.
-- bank_transfer_automatic: toma el valor 1 si el método de pago es de ese tipo, 0 en otro caso.
-- credit_card_automatic: toma el valor 1 si el método de pago es de ese tipo, 0 en otro caso.
-- automatic_payment: : toma el valor 1 si el método de pago es credit_card_automatic o bank_transfer_automatic, 0 en otro caso.
+| Variable | Definición |
+| ----------|---------------|
+| customer_id| número de identificación único de cada cliente.|
+| churn| cliente dejó la empresa (1:Sí, 0:No).|
+| gender_male| género (1:masculino, 0:femenino).|
+| senior_citizen_65| cliente mayor a 64 años (1:Sí, 0:No).|
+| partner| cliente tiene una pareja (1:Sí, 0:No).|
+| dependents| cliente tiene dependientes (1:Sí, 0:No).|
+| tenure| meses de contrato del cliente.|
+| phone_service| cliente suscrito al servicio telefónico (1:Sí, 0:No).|
+| multiple_lines| cliente suscrito a más de una línea telefónica (1:Sí, 0:No)
+| internet_service| cliente suscrito a un proveedor de internet (1:Sí, 0:No).|
+| online_security| cliente suscrito al seguridad en línea (1:Sí, 0:No).|
+| online_backup| cliente suscrito a respaldo en línea (1:Sí, 0:No).|
+| device_protection| cliente suscrito a protección del dispositivo (1:Sí, 0:No).|
+| tech_support| cliente suscrito a soporte técnico (1:Sí, 0:No).|
+| streaming_tv| cliente suscrito a televisión por cable (1:Sí, 0:No).|
+| streaming_movies| cliente suscrito a streaming de películas (1:Sí, 0:No).|
+| contract| tipo de contrato (month_to_month, one_year, two_year).|
+| paperless_billing| cliente prefiere recibir la factura en línea (1:Sí, 0:No).|
+| payment_method| forma de pago.|
+| charges_monthly| total de todos los servicios del cliente por mes.|
+| charges_total| total gastado por el cliente.|
+| family| El cliente tiene pareja o dependientes. (1:sí, 0:no).|
+| tenure_log| logaritmo de la antigüedad del cliente.|
+| dsl| toma el valor 1 si el servicio de internet es por DSL, 0 en otro caso.|
+| fiber_optic| toma el valor 1 si el servicio de internet es por fibra optica, 0 en otro caso.|
+| no_internet| toma el valor 1 si no hay servicio de internet.|
+| subcription_total| Cuenta la cantidad de servicios a lo que el usuario esta subscrito.|
+| subcription_no_streaming| Cuenta la cantidad de servicios a lo que el usuario esta subscrito, ignorando los de streaming.|
+| streaming| cliente suscrito a streaming_tv o streaming_movies (1:sí, 0:no).|
+| month_to_month| toma el valor 1 si el contrato es de ese tipo, 0 en otro caso.|
+| one_year| toma el valor 1 si el contrato es de ese tipo, 0 en otro caso.|
+| two_year| toma el valor 1 si el contrato es de ese tipo, 0 en otro caso.|
+| charges_average | Se suman los gaston mensuales y totales (los gastos acumulados más los gastos de este mes) y se dividen por tenure + 1 (contando el mes).|
+| charges_average_log | logaritmo de los gastos promedios.|
+| charges_total_log | logaritmo de los gastos totales.|
+| electronic_check| toma el valor 1 si el método de pago es de ese tipo, 0 en otro caso.|
+| mailed_check| toma el valor 1 si el método de pago es de ese tipo, 0 en otro caso.|
+| bank_transfer_automatic| toma el valor 1 si el método de pago es de ese tipo, 0 en otro caso.|
+| credit_card_automatic| toma el valor 1 si el método de pago es de ese tipo, 0 en otro caso.|
+| automatic_payment | toma el valor 1 si el método de pago es credit_card_automatic o bank_transfer_automatic, 0 en otro caso.|
 
 
