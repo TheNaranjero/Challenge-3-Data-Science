@@ -1,6 +1,7 @@
 # Challenge-3-Data-Science
 
 Proyecto de Machine Learning para predicción de cancelación de clientes (churn).
+<img width="865" height="396" alt="imagen decorativa con porcentajes de la tabla lift" src="https://github.com/user-attachments/assets/eada8a74-3690-4af4-ae10-62d43868aa73" />
 
 ## Introducción
 Este proyecto desarrolla modelos predictivos para estimar el riesgo de cancelación de clientes (churn) en Telecom X. El objetivo es construir herramientas que permitan identificar clientes de alto riesgo y facilitar estrategias de retención.
