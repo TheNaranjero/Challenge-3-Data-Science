@@ -11,42 +11,55 @@ Proyecto de Machine Learning para predicción de cancelación de clientes (churn
 <img src="https://img.shields.io/badge/PROYECTO-3-orange" alt="Badge Proyecto 4">
 </p>
 
+
+## Índice
+
+- [Introducción](#introducción)
+- [Objetivo del Proyecto](#objetivo-del-proyecto)
+- [Resultados Principales](#resultados-principales)
+- [Resumen](#resumen)
+- [Contenidos del Análisis](#contenidos-del-análisis)
+  - [Introducción al problema](#introducción)
+  - [Preparación](#preparación)
+  - [Análisis Exploratorio](#análisis-exploratorio)
+  - [Preparación de la Base](#preapración-de-la-base)
+  - [Valores de Referencia](#valores-de-referencia)
+  - [Modelos](#modelos)
+  - [Comparación de Modelos](#comparación-de-modelos)
+  - [Interpretación del Modelo](#interpretación-del-modelo)
+  - [Simulación](#simulación)
+  - [Conclusiones](#conclusiones)
+  - [Mejoras Futuras](#mejoras-futuras)
+- [Diccionario de Variables](#diccionario)
+
+
 ## Introducción
 Este proyecto desarrolla modelos predictivos para estimar el riesgo de cancelación de clientes (churn) en Telecom X. El objetivo es construir herramientas que permitan identificar clientes de alto riesgo y facilitar estrategias de retención.
 
 ## Objetivo del Proyecto
 Predecir la cancelación de clientes e identificar que factores influyen en la misma.
 
-## Resultado Principal
-- El modelo permite priorizar a los clientes según su riesgo de cancelación. El top 20% de mayor riesgo contiene a la mitad de las cancelaciones y presenta una probabilidad de cancelación del 66%, más del doble que el 27% observado en la población general.
+## Resultados Principales
+- Se construyó un modelo permite priorizar a los clientes según su riesgo de cancelación. El top 20% de mayor riesgo concentra el 50% de las cancelaciones.
+- Los factores principales para la cancelación son la antigüedad del cliente, sus gastos mensuales, el tipo de internet (fibra óptica, dsl o sin internet) y la duración del contrato (mensual, anual, bianual).
+- Se destacan los efectos del tipo de servicio de internet, aquellos con fibra óptica presentan un 50% más de riesgo que aquellos con dsl o sin internet; y del tipo de contrato, el plan mensual tiene dos veces más riesgo de cancelar que clientes de plan anual y casi cuatro veces más que clientes del plan bianual.
+- Un descuento del 50% en los gastos mensuales durante 6 meses no produce mejoras en la ganancias y apenas reduce la cancelación .
 
 ## Resumen
 - La tasa de cancelación observada es del 27%.
-- Se ajustaron 8 modelos predictivos con optimización de hiperparámetros.
+- Previamente (proyecto anterior) se realizó un análisis exploratorio intensivo, creando nuevas variables utilizando transformaciones, agrupaciones o one-hot encoding.
+- Se realizaró un análisis exploratorio y de correlación. Además se analizaron la importancia de las variables.
+- Se descartaron variables no informativas, redundantes o altamente correlacionadas.
+- Se dividió la base en entrenamiento y prueba.
+- Se establecieron modelos piso y techo como referencia.
+- Se ajustaron 8 modelos predictivos con optimización de hiperparámetros. Siempre utilizando validación cruzada.
 - Bajo todas las métricas evaluadas, el mejor modelo fue la regresión logística regularizada.
 - El modelo permite identificar el 80% de los clientes que cancelarán, con una precisión del 50%.
 - Esto permite construir un grupo de alto riesgo donde la probabilidad de cancelación es aproximadamente el doble que en la población general.
+- Utilizando los coeficientes del modelo se identifican las variables de mayor importancia para el mismo.
+- Se interpretan las variables de mayor importancia, aplicando además un proceso de recalibración
+- Como ejemplo del potencial del modelo, se realiza una simulación de un escenario donde se aplica un descuento del 50% a los gastos del grupo de alto riesgo.
 
-Factores más importantes asociados al riesgo de cancelación:
-- Antigüedad del cliente:
-  -   Clientes más nuevos presentan mayor riesgo.
-- Gasto mensual:
-  -   Mayor gasto implica mayor riesgo.
-- Tipo de internet:
-  -   Fibra óptica tiene mayor riesgo que  DSL y  Sin internet
-- Tipo de contrato:
-  -   Mensual tiene mayor riesgo que  Anual y este que Bianual
-
-## Tabla Lift
-| Grupo |   Cantidad de clientes | Riesgo de Cancelación | Porcentaje Acumulado de Cancelaciones |
-|------|----------------------|-----------------------|----------------------------------------|
-| A |  282 | 66% | 50% |
-| B |  281 | 39% | 80% |
-| C |  281 | 17% | 93% |
-| D |  281 | 8% | 99% |
-| E |  282 | 0% | 100% |
-
-*Nota*: Resultados del modelo aplicado a la base de prueba, simulando su aplicación real.
 
 
 ## Contenidos del análisis
@@ -109,11 +122,16 @@ Se utiliza la base de prueba, la cual nunca fue vista por los modelos. Se fija u
 - Decisión final: tras comparar todos los estadísticos se selecciona el mejor modelo.
 
 ### Interpretación del modelo
-<img width="1062" height="524" alt="Importancia de las variables" src="https://github.com/user-attachments/assets/f5b62286-6b76-4f48-adb8-5578c6d5aace" />
+<img width="1189" height="590" alt="Importancia de las variables" src="https://github.com/user-attachments/assets/92eda8a0-471f-46a9-a49b-708e11aac2b8" />
 
 - Se interpretan las variables más importantes. Incluyendo el alcance de sus efectos (ej: los clientes que contratan fibra óptica tienen un 26% más chance de rechazo que los clientes sin internet).
-- Tabla Lift: la misma tabla presentada en este readme.
+- Tabla Lift y Curva Lift.
+-
+### Simulación
+- Se utiliza el modelo con sus probabilidades calibradas para simular un escenario donde se aplica un 50% de descuento a los gastos mensuales del top 20% de clientes de mayor chance de cancelación. Tras 6 meses se descubre que el efecto es mínimo.
 
+### Conclusiones
+- Breves conclusiones del trabajo, las mismas encontradas en "Resultados Principales" en este read me.
 ### Mejoras Futuras
 Se mencionan las debilidades y posibles mejoras de este análisis.
 En particular se advierte sobre el riesgo de que los datos estén mal interpretados (se asume que todos los datos pertenecen al mismo mes y no a un periodo prolongado en el tiempo.)
